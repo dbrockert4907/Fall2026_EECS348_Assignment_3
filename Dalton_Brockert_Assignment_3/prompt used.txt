@@ -1,0 +1,78 @@
+Create a C++ program for a university Software Engineering I assignment with the following requirements.
+
+The program will prioritize emails for a busy company CEO.
+
+Use a MaxHeap as a priority queue. The MaxHeap must use a list-based implementation. Do not use any pre-existing heap, priority_queue, or other heap modules from the C++ standard library or elsewhere. Create the required objects/classes from scratch.
+
+The program receives commands from a test file.
+
+EMAIL <sender category>,<subject line>,<date>
+
+The sender categories and their priorities are:
+- Boss – read first
+- Subordinate – read next
+- Peer – read next
+- ImportantPerson – read next
+- OtherPerson – read last
+
+If there is more than one email from the same sender category, the newest email should be read first.
+
+The subject line may contain spaces but will not contain commas.
+
+The date is formatted as MM-DD-YYYY.
+
+Commands:
+
+NEXT
+Display the next email for the CEO to read in exactly this format:
+Next email:
+Sender: <sender>
+Subject: <subject>
+Date: <date>
+
+NEXT must not remove the email from the queue.
+
+READ
+The CEO has read and dealt with the highest-priority email. Remove that email from the queue without displaying it.
+
+COUNT
+Display the current number of unread emails in exactly this format:
+There are <count> emails to read.
+
+The program must correctly handle:
+- NEXT when there are no emails
+- READ when there are no emails
+- two NEXT commands in a row without READ; both NEXT commands should display the same email
+- two READ commands in a row without NEXT; each READ should remove the current highest-priority email
+
+The input file will begin with EMAIL commands followed by commands such as COUNT, NEXT, and READ. The number and order of commands may vary.
+
+Sample input:
+EMAIL Peer,Can you help me on this?,12-01-2024
+EMAIL OtherPerson,Try our product,12-19-2024
+EMAIL Boss,Important,12-20-2024
+EMAIL Subordinate,How do I handle this?,12-25-2024
+EMAIL ImportantPerson,Health Insurance Enrollment,12-31-2024
+EMAIL Boss,Never Mind,01-03-2025
+COUNT
+NEXT
+READ
+NEXT
+READ
+COUNT
+
+Expected output:
+There are 6 emails to read.
+Next email:
+Sender: Boss
+Subject: Never Mind
+Date: 01-03-2025
+Next email:
+Sender: Boss
+Subject: Important
+Date: 12-20-2024
+There are 4 emails to read.
+
+Use C++ objects/classes rather than implementing the solution as a collection of standalone functions. The program should be organized into logical classes, such as an Email object and a MaxHeap/priority queue object.
+
+Provide complete compilable C++ source code. Do not provide pseudocode. Explain briefly how the classes and MaxHeap work after the code.

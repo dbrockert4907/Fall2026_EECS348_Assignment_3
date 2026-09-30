@@ -1,0 +1,20 @@
+a. The two GenAI programs I used were ChatGPT and Google Gemini.
+b. I accessed them by searching for them through google.
+c. Prompt: located in the "prompt used.txt" file.
+d. generated code is located within the code files themselves.
+
+e. Both programs correctly implement the requirements, and also assign the correct sender priorities. Both programs use a MaxHeap,
+so their main heap operations have roughly the same preformance, meaning neither programs have a meaninful time difference.
+Both programs require the same amount of space, in this case being O(n). The ChatGPT program allocates an array that grows when necessary.
+The gemini version uses a std::vector<Email> as the list, meaning it also requires O(n) storage.
+Neither program creates an additional collection, so the space complexity remains the same.
+Both programs use classes, which makes them more maintainable than putting the entire solution into main().
+overall, the Gemini version was easier t follow because the storage management is simpler.
+
+f. I chose the Google Gemini program as the final program, because its maxheap uses a std::vector<Email> for its list based storage while still implementing the heap operations manually.
+The Gemini program also has a clear seperation between the email, maxheap, and emailpriorityqueue classes. The email class handles email information and priority comparison,
+the max heap class handles the heap itself, and emailpriorityqueue handles the input commands.
+Since both codes have nearly the same execution time and space complexity, the decision was mainly made based off of code organization, maintainability, and memory simplicity.
+
+g. For the improvements, the original gemini program did not report an error if a provided input file could not be opened. Instead, it would continue using the standard input.
+I will change it so that an input file is required, the program reports and error if the file can't be opened, and the program exits with a nonzero status when the file cannot be opened.
